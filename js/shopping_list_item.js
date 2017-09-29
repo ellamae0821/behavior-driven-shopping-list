@@ -17,3 +17,45 @@
 
 //jshint esversion: 6
 
+class ShoppingListItem {
+  constructor(name, description){
+    this.name = name;
+    this.description = description;
+    this.is_done = false;
+  }
+
+
+  check (){
+    this.is_done = true;
+  }
+
+  uncheck(){
+    this.is_done = false;
+  }
+
+  render() {
+/*    let str = `<li class="completed_${item.is_done}"><span>${item.name}</span> <span>${item.description}</span>`;
+
+      return str;*/
+
+ /*   var itemStr = `
+    <input class="checkbox" type="checkbox" ${this.is_done ? "checked" : ""}>\n
+    <span>${this.name}</span>\n
+    <span>${this.description}</span>
+    `;
+    return itemStr;
+
+*/
+    var itemStr = `
+    <input class="checkbox" type="checkbox" id="${this.id}" ${this.is_done ? "checked" : ""}>\n
+    <span>${this.name}</span>\n
+    <span>${this.description}</span>
+    `;
+    return itemStr;
+  }
+}
+module.exports=ShoppingListItem;
+
+
+
+
