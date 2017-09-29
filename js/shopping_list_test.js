@@ -86,24 +86,41 @@ describe('Shopping List', function (){
     expect(sl.items[0]).to.be.an.instanceof(ShoppingListItem);
   });
 
-//  describe('"removeItem"', function (){
-    var juice = new ShoppingListItem("OrangeJuice", "quencher");
-    var eggs = new ShoppingListItem("Eggs", "chickenPoop");
-//    var sl = new ShoppingList('bread');
+  var juice = new ShoppingListItem("OrangeJuice", "quencher");
+  var eggs = new ShoppingListItem("Eggs", "chickenPoop");
 
-    it('Should have a method `removeItem`', function (){
-      expect(sl.removeItem).to.be.a('function');
+  it('Should have a method `removeItem`', function (){
+    expect(sl.removeItem).to.be.a('function');
+  });
+
+  it('Should remove the object passed in from the `items` array', function (){
+    sl.addItem(juice);
+    sl.addItem(eggs);
+    sl.removeItem(juice);
+    expect(sl).to.not.include(juice);
+    expect(sl.removeItem()).to.equal(sl.items = sl.items.pop());
+  });
+
+  it('Should have a method named "render"', function () {
+      expect(sl).to.have.property('render');
+      expect(sl.render).to.be.a('function');
     });
-    it('Should remove the object passed in from the `items` array', function (){
 
-      sl.addItem(juice);
-      sl.addItem(eggs);
-      sl.removeItem(juice);
-      expect(sl).to.not.include(juice);
-      expect(sl.removeItem()).to.equal(sl.items = sl.items.pop());
-    });
+  it('Should concatenate the string from calling the render and returns it as a string', function (){
+    sl.addItem(juice);
+    sl.addItem(eggs);
+
+    /*expect(sl.render()).to.equal(`<ul><li class="completed_false"><span>OrangeJuice</span>&nbsp;<span>quencher</span></li><li class="completed_false"><span>Eggs</span><span>chickenPoop</span></li></ul>`);*/
+
+    expect(sl.render()).to.equal(`<li class="completed_${sl.finished}"><span>${sl.name}</span><span>${sl.description}</span></li>`);
+
+  });
 
 
-
-
+   /* it('should have a method render, should be a string', function(){
+      var jerky = new ShoppingListItem("jerky","delicious");
+          expect(jerky.render).to.be.a("function");
+    expect(jerky.render()).to.be.a("string");
+    expect(jerky.render()).to.equal(`<li class="completed_${jerky.finished}"><span>${jerky.name}</span><span>${jerky.description}</span></li>`);
+*/
 });

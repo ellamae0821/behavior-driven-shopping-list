@@ -54,8 +54,27 @@ module.exports=ShoppingListItem;
 
 /*
 AssertionError: expected
-'<li class="checkbox" type="checkbox" >\n<span>shawarma</span>\n<span>yummy</span></li>\n    ' to equal
-'<li class="completed_false"><span>shawarma</span>&nbsp;<span>yummy</span></li>'
+'<li class="checkbox" type="checkbox" >
+\n<span>shawarma</span>
+\n<span>yummy</span></li>' to equal
+
+'<li class="completed_false">
+\n<span>shawarma</span>
+\n&nbsp;<span>yummy</span></li>'
+    at Context.<anonymous> (js/shopping_list_test.js:53:30)
+
+
+
+AssertionError: expected
+'<li class="checkbox" type="checkbox" >
+\n<span>shawarma</span>
+\n<span>yummy</span>
+</li>' to equal
+
+'<li class="completed_false">
+<span>shawarma</span>
+&nbsp;<span>yummy</span><
+/li>'
     at Context.<anonymous> (js/shopping_list_test.js:53:30)
 
 

@@ -37,7 +37,14 @@ class ShoppingList {
     }
   }
 
-
+  render() {
+    var itemStr = `
+    <input class="checkbox" type="checkbox" id="${this.id}" ${this.is_done ? "checked" : ""}>\n
+    <span>${this.name}</span>\n
+    <span>${this.description}</span>
+    `;
+    return itemStr;
+  }
 }
 //shoud remove the last item
 //if no objects, do nothing
